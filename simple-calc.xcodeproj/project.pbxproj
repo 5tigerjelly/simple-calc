@@ -295,6 +295,7 @@
 				9D2695581CC724CA00007139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
