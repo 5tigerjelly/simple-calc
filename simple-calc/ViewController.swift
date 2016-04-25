@@ -14,7 +14,11 @@ class ViewController: UIViewController {
 
     var click = false
     
+    @IBOutlet weak var historybox: UILabel!
+    
     var calculating = false
+    
+    var history : [String] = []
     
     @IBAction func enterNumber(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -66,18 +70,25 @@ class ViewController: UIViewController {
         }else if sender.currentTitle! == "=" {
             let num2 = displayValue
             NSLog("got in")
+            var result = 0
             switch oper{
-            case "+": display.text = "\(num1+num2)"
-            case "-": display.text = "\(num1-num2)"
-            case "x": display.text = "\(num1*num2)"
-            case "/": display.text = "\(num1/num2)"
-            case "%": display.text = "\(num1%num2)"
-            case "count": display.text = "\(count)"
+            case "+": result = num1+num2
+            case "-": result = num1-num2
+            case "x": result = num1*num2
+            case "/": result = num1/num2
+            case "%": result = num1%num2
+            case "count": result = count
             case "avg":
                 averageSum += num2
-                display.text = "\(averageSum / count)"
+                result = averageSum / count
             default: NSLog("wrong operation input")
             }
+            display.text = "\(result)"
+            history.append("\(num1) \(oper) \(num2) = \(result)")
+            let addtohis = ("\(num1) " + "\(oper)" + " \(num2)" + " = " + "\(result)\n")
+            NSLog(addtohis)
+            //historybox.text = historybox.text! + addtohis
+            
         }else{
             num1 = displayValue
             oper = sender.currentTitle!
