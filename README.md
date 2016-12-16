@@ -15,3 +15,6 @@ Add a few new (multi-operand) operations
 the above can take any number of inputs
 "fact": calculate factorial (can only take one input)
 5 fact => 120
+
+![alt text](screenshot/IMG_4719.PNG "Logo Title Text 1")
+
